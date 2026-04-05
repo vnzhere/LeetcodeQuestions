@@ -11,14 +11,14 @@ class Solution {
         int totalWater = 0;
 
         while (left < right) {
-            // We always process the shorter side because it limits the water level
+           // The shorter side determines the max water we can trap at that point
             if (height[left] < height[right]) {
                 
                 // If current bar is taller than our left record, update the record
                 if (height[left] >= leftMax) {
                     leftMax = height[left];
                 } else {
-                    // If it's shorter, it means there's a "dip" where water can stay!
+                    // If current height is smaller, water can be trapped using leftMax
                     // Water trapped = (Tallest wall so far) - (Current bar height)
                     totalWater += leftMax - height[left];
                 }
